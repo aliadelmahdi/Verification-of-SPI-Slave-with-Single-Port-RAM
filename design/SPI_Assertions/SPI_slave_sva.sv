@@ -23,6 +23,7 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
             (!rst_n)|=> ( (rx_data==0)
                       && !MISO
                       && !rx_valid
+                      && (cs == IDLE)
                      ); 
                      
     endproperty
@@ -36,7 +37,7 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
         end
 
     property check_reset_state;
-            (!rst_n)|-> ( cs == IDLE ); 
+            (!rst_n)|=> ( cs == IDLE ); 
                      
     endproperty
 

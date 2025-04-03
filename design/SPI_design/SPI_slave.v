@@ -90,8 +90,11 @@ always@(cs,MOSI,SS_n)begin
  case(cs)
   IDLE:if(SS_n==1)
        ns=IDLE;
-       else
+       else if(!SS_n) // Fixed this line for the designer #verfication team
        ns=CHK_CMD;
+       else// Fixed this line for the designer #verfication team
+       ns=IDLE;// Fixed this line for the designer #verfication team
+
   CHK_CMD:if((SS_n==0 && MOSI==1)&&(read_address_received==0))begin
           ns=READ_ADD;
 //          read_address_received=1;
