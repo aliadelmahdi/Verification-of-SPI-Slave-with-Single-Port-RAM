@@ -182,3 +182,15 @@
 # ** Note: $stop    : top/top.sv(89)
 #    Time: 1010 ps  Iteration: 61  Instance: /tb_top
 # Break in Module tb_top at top/top.sv line 89
+# Stopped at top/top.sv line 89
+# Disable the transcript
+# transcript off
+# QuestaSim-64 vcover 2021.1 Coverage Utility 2021.01 Jan 19 2021
+# Start time: 19:43:56 on Apr 03,2025
+# vcover report top.ucdb -details -annotate -all -output reports/Coverage Report - Code, Assertions, and Directives.txt 
+# ** Error: (vcover-7) Failed to open UCDB file "top.ucdb" in read mode.
+# ** Note: (vcover-17388) No matching coverage data found in file 'top.ucdb'.
+# End time: 19:43:56 on Apr 03,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Cannot change directory while a simulation is in progress.
+# Use the "quit -sim" command to unload the design first.
