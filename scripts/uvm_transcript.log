@@ -1,0 +1,184 @@
+# Start Simulation
+# vsim -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug 
+# vsim -voptargs="+acc" work.tb_top -coverage -classdebug -uvmcontrol=all -fsmdebug 
+# Start time: 19:43:49 on Apr 03,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: top/top.sv(30): (vopt-2685) [TFMPC] - Too few port connections for 'slave'.  Expected 9, found 7.
+# ** Warning: top/top.sv(30): (vopt-2718) [TFMPC] - Missing connection for port 'tx_data'.
+# ** Warning: top/top.sv(30): (vopt-2718) [TFMPC] - Missing connection for port 'tx_valid'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=3.
+# //  Questa Sim-64
+# //  Version 2021.1 win64 Jan 19 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.SPI_if(fast)
+# Loading work.shared_pkg(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.SPI_slave_seq_item_pkg(fast)
+# Loading work.SPI_slave_monitor_pkg(fast)
+# Loading work.SPI_slave_sequencer_pkg(fast)
+# Loading work.SPI_slave_reset_sequence_pkg(fast)
+# Loading work.SPI_slave_main_sequence_pkg(fast)
+# Loading work.SPI_config_pkg(fast)
+# Loading work.SPI_slave_driver_pkg(fast)
+# Loading work.SPI_slave_agent_pkg(fast)
+# Loading work.SPI_ram_seq_item_pkg(fast)
+# Loading work.SPI_ram_monitor_pkg(fast)
+# Loading work.SPI_ram_sequencer_pkg(fast)
+# Loading work.SPI_ram_main_sequence_pkg(fast)
+# Loading work.SPI_ram_driver_pkg(fast)
+# Loading work.SPI_ram_agent_pkg(fast)
+# Loading work.SPI_scoreboard_pkg(fast)
+# Loading work.SPI_coverage_pkg(fast)
+# Loading work.SPI_env_pkg(fast)
+# Loading work.SPI_test_pkg(fast)
+# Loading work.spi_defines_svh_unit(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.tb_top(fast)
+# Loading work.SPI_if(fast__2)
+# Loading work.SPI_slave(fast)
+# Loading work.SPI_slave_sva(fast)
+# Loading work.RAM_Sync_Single_port(fast)
+# Loading work.golden_model(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (1) for port 'tx_data'. The port definition is at: design/SPI_Assertions/SPI_slave_sva.sv(14).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top/slave/SPI_ram_sva_inst File: top/top.sv Line: 61
+# Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
+# log -r /*
+# # Add signals to the wave window
+# add wave /tb_top/RAM/*
+# add wave /tb_top/slave/*
+# Code Coverage
+# coverage save top.ucdb -onexit -du work.RAM_Sync_Single_port -du work.SPI_slave
+# 
+# vcd file waves/waves.vcd
+# vcd add -r /* 
+# run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(all)
+# UVM_INFO @ 0: reporter [RNTST] Running test SPI_test...
+# 
+#### Factory Configuration (*)
+# 
+#   No instance or type overrides are registered with this factory
+# 
+# All types registered with the factory: 57 total
+# (types without type names will not be printed)
+# 
+#   Type Name
+#   ---------
+#   SPI_config
+#   SPI_coverage
+#   SPI_env
+#   SPI_ram_agent
+#   SPI_ram_driver
+#   SPI_ram_main_sequence
+#   SPI_ram_monitor
+#   SPI_ram_seq_item
+#   SPI_ram_sequencer
+#   SPI_scoreboard
+#   SPI_slave_agent
+#   SPI_slave_driver
+#   SPI_slave_main_sequence
+#   SPI_slave_monitor
+#   SPI_slave_reset_sequence
+#   SPI_slave_seq_item
+#   SPI_slave_sequencer
+#   SPI_test
+#   questa_uvm_recorder
+# (*) Types with no associated type name will be printed as <unknown>
+# 
+####
+# 
+# UVM_INFO top/test/test.sv(64) @ 0: uvm_test_top [run_phase] stimulus Generation started
+# **************************************************************************
+# * Questa UVM Transaction Recording Turned ON.                            *
+# * recording_detail has been set.                                         *
+# *  To turn off, set 'recording_detail' to off:                           *
+# * uvm_config_db#(int)            ::set(null, "", "recording_detail", 0); *
+# * uvm_config_db#(uvm_bitstream_t)::set(null, "", "recording_detail", 0); *
+# **************************************************************************
+# UVM_INFO top/test/test.sv(66) @ 10: uvm_test_top [run_phase] Reset Deasserted
+# UVM_INFO top/test/test.sv(68) @ 10: uvm_test_top [run_phase] Stimulus Generation Started
+# ** Error: Failed to assert reset
+#    Time: 25 ps Started: 25 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 45 ps Started: 45 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 65 ps Started: 65 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 225 ps Started: 225 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 315 ps Started: 315 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 345 ps Started: 345 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 545 ps Started: 545 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 575 ps Started: 575 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 615 ps Started: 615 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 635 ps Started: 635 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 655 ps Started: 655 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 695 ps Started: 695 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 795 ps Started: 795 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 865 ps Started: 865 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 895 ps Started: 895 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# ** Error: Failed to assert reset
+#    Time: 995 ps Started: 995 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
+# UVM_INFO top/test/test.sv(71) @ 1010: uvm_test_top [run_phase] Stimulus Generation Ended
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 1010: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO top/test/enviroment/scoreboard/SPI_scoreboard.sv(57) @ 1010: uvm_test_top.env.spi_sb [report_phase] At time 1010: Simulation Ends and Error count= 0, Correct count= 0
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    9
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [report_phase]     1
+# [run_phase]     4
+# ** Note: $stop    : top/top.sv(89)
+#    Time: 1010 ps  Iteration: 61  Instance: /tb_top
+# Break in Module tb_top at top/top.sv line 89

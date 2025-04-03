@@ -32,11 +32,12 @@ module tb_top;
         .SS_n(spi_if.SS_n),
         .clk(spi_if.clk),
         .rst_n(spi_if.rst_n),
-        .tx_data(spi_if.dout),
-        .tx_valid(spi_if.tx_valid),
         .MISO(spi_if.MISO),
+        //
         .rx_data(spi_if.rx_data),
         .rx_valid(spi_if.rx_valid)
+        // .tx_data(spi_if.dout),
+        // .tx_valid(spi_if.tx_valid)
     );
 
     // RAM_Sync_Single_port instantiation
@@ -57,17 +58,19 @@ module tb_top;
         );
 
       
-    // bind SPI_ram SPI_ram_sva SPI_ram_sva_inst (
-    //     .MOSI(MOSI),
-    //     .SS_n(SS_n),
-    //     .clk(clk),
-    //     .rst_n(rst_n),
-    //     .tx_data(tx_data),
-    //     .tx_valid(tx_valid),
-    //     .MISO(MISO),
-    //     .rx_data(rx_data),
-    //     .rx_valid(rx_valid)
-    // );
+    bind SPI_slave SPI_slave_sva SPI_ram_sva_inst  (
+        .MOSI(MOSI),
+        .SS_n(SS_n),
+        .clk(clk),
+        .rst_n(rst_n),
+        .MISO(MISO),
+        //
+        .rx_data(rx_data),
+        .rx_valid(rx_valid),
+        .tx_data(dout),
+        .tx_valid(tx_valid),
+        .cs(slave.cs)
+    );
 
     // bind RAM RAM_sva RAM_sva_inst (
     //     .din(rx_data),

@@ -1,4 +1,4 @@
-module RAM_Sync_Single_port #(parameter MEM_DEPTH = 256, ADDR_SIZE = 8)(din,rx_valid,clk,rst_n,dout,tx_valid);
+module 222222222222222 #(parameter MEM_DEPTH = 256, ADDR_SIZE = 8)(din,rx_valid,clk,rst_n,dout,tx_valid);
 
 	input [9:0] din;
 	input clk,rst_n,rx_valid;

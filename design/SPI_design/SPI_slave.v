@@ -1,16 +1,17 @@
-module SPI_slave(clk,rst_n,SS_n,MOSI,MISO);
+module SPI_slave(clk,rst_n,SS_n,MOSI,MISO,tx_valid,tx_data,rx_data,rx_valid);
 input clk,rst_n,SS_n,MOSI;
-wire tx_valid;
-wire[7:0]tx_data;
-reg rx_valid;
+output wire tx_valid;
+output wire[7:0]tx_data;
+output reg rx_valid;
 output reg MISO;
 reg done_receiving;
-reg [9:0]rx_data;
+output reg [9:0]rx_data;
 parameter IDLE=3'b000;
 parameter CHK_CMD=3'b001;
 parameter READ_ADD=3'b010;
 parameter READ_DATA=3'b011;
 parameter WRITE=3'b100;
+
 
 reg [3:0]counter;
 reg read_address_received;
@@ -18,7 +19,7 @@ reg read_address_received;
 (* fsm_encoding = "gray" *)
 reg[2:0]cs,ns;
 
-RAM_SPI m1(rx_data,rx_valid,clk,rst_n,tx_valid,tx_data);
+// RAM_SPI m1(rx_data,rx_valid,clk,rst_n,tx_valid,tx_data);
 
 //State Memory
 always@(posedge clk)begin
