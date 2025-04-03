@@ -3,7 +3,8 @@ package SPI_ram_main_sequence_pkg;
     import uvm_pkg::*;
     import SPI_ram_seq_item_pkg::*;
     `include "uvm_macros.svh"
-
+    `include "spi_defines.svh"
+    
     class SPI_ram_main_sequence extends uvm_sequence #(SPI_ram_seq_item);
 
         `uvm_object_utils (SPI_ram_main_sequence);
