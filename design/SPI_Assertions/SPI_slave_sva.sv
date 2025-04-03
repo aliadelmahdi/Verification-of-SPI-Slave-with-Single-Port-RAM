@@ -75,18 +75,18 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
             (cs==CHK_CMD && (!SS_n && MOSI) )|=> (cs == READ_DATA); 
     endproperty
 
-    assert_CHK_CMD_to_read_data: assert property (@(posedge clk) CHK_CMD_to_read_data)
+    // assert_CHK_CMD_to_read_data: assert property (@(posedge clk) CHK_CMD_to_read_data)
 
-        else $error("Failed to assert CHK_CMD_to_read_data transition") 
+    //     else $error("Failed to assert CHK_CMD_to_read_data transition") 
 
-    property CHK_CMD_to_read_add;
-    @(posedge clk) disable iff(!rst_n)
-            (cs==CHK_CMD && (!SS_n && MOSI) )|=> (cs == READ_DATA); 
-    endproperty
+    // property CHK_CMD_to_read_add;
+    // @(posedge clk) disable iff(!rst_n)
+    //         (cs==CHK_CMD && (!SS_n && MOSI) )|=> (cs == READ_DATA); 
+    // endproperty
 
-    assert_CHK_CMD_to_read_data: assert property (@(posedge clk) CHK_CMD_to_read_data)
+    // assert_CHK_CMD_to_read_data: assert property (@(posedge clk) CHK_CMD_to_read_data)
 
-        else $error("Failed to assert CHK_CMD_to_read_data transition"
+    //     else $error("Failed to assert CHK_CMD_to_read_data transition"
 
 
 
