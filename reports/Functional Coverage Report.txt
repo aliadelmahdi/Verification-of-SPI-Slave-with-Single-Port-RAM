@@ -1,68 +1,29 @@
-Coverage Report by instance with details
-
-=================================================================================
-=== Instance: /SPI_coverage_pkg
-=== Design Unit: work.SPI_coverage_pkg
-=================================================================================
-
-Covergroup Coverage:
-    Covergroups                      1        na        na   100.00%
-        Coverpoints/Crosses          1        na        na        na
-            Covergroup Bins          4         4         0   100.00%
-----------------------------------------------------------------------------------------------------------
-Covergroup                                             Metric       Goal       Bins    Status               
-                                                                                                         
-----------------------------------------------------------------------------------------------------------
- TYPE /SPI_coverage_pkg/SPI_coverage/spi_cov_grp      100.00%        100          -    Covered              
-    covered/total bins:                                     4          4          -                      
-    missing/total bins:                                     0          4          -                      
-    % Hit:                                            100.00%        100          -                      
-    Coverpoint rst_n_cp                               100.00%        100          -    Covered              
-        covered/total bins:                                 4          4          -                      
-        missing/total bins:                                 0          4          -                      
-        % Hit:                                        100.00%        100          -                      
- Covergroup instance \/SPI_coverage_pkg::SPI_coverage::spi_cov_grp  
-                                                      100.00%        100          -    Covered              
-    covered/total bins:                                     4          4          -                      
-    missing/total bins:                                     0          4          -                      
-    % Hit:                                            100.00%        100          -                      
-    Coverpoint rst_n_cp                               100.00%        100          -    Covered              
-        covered/total bins:                                 4          4          -                      
-        missing/total bins:                                 0          4          -                      
-        % Hit:                                        100.00%        100          -                      
-        bin active                                         43          1          -    Covered              
-        bin inactive                                       58          1          -    Covered              
-        bin inactive_to_active                             27          1          -    Covered              
-        bin active_to_inactive                             27          1          -    Covered              
-
 COVERGROUP COVERAGE:
-----------------------------------------------------------------------------------------------------------
-Covergroup                                             Metric       Goal       Bins    Status               
-                                                                                                         
-----------------------------------------------------------------------------------------------------------
- TYPE /SPI_coverage_pkg/SPI_coverage/spi_cov_grp      100.00%        100          -    Covered              
-    covered/total bins:                                     4          4          -                      
-    missing/total bins:                                     0          4          -                      
-    % Hit:                                            100.00%        100          -                      
-    Coverpoint rst_n_cp                               100.00%        100          -    Covered              
-        covered/total bins:                                 4          4          -                      
-        missing/total bins:                                 0          4          -                      
-        % Hit:                                        100.00%        100          -                      
+-----------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal    Status               
+                                                                                              
+-----------------------------------------------------------------------------------------------
+ TYPE /SPI_coverage_pkg/SPI_coverage/spi_cov_grp       100.0%        100    Covered              
+    covered/total bins:                                     4          4                      
+    missing/total bins:                                     0          4                      
+    % Hit:                                             100.0%        100                      
+    Coverpoint spi_cov_grp::rst_n_cp                   100.0%        100    Covered              
+        covered/total bins:                                 4          4                      
+        missing/total bins:                                 0          4                      
+        % Hit:                                         100.0%        100                      
+ CLASS SPI_coverage
  Covergroup instance \/SPI_coverage_pkg::SPI_coverage::spi_cov_grp  
-                                                      100.00%        100          -    Covered              
-    covered/total bins:                                     4          4          -                      
-    missing/total bins:                                     0          4          -                      
-    % Hit:                                            100.00%        100          -                      
-    Coverpoint rst_n_cp                               100.00%        100          -    Covered              
-        covered/total bins:                                 4          4          -                      
-        missing/total bins:                                 0          4          -                      
-        % Hit:                                        100.00%        100          -                      
-        bin active                                         43          1          -    Covered              
-        bin inactive                                       58          1          -    Covered              
-        bin inactive_to_active                             27          1          -    Covered              
-        bin active_to_inactive                             27          1          -    Covered              
+                                                       100.0%        100    Covered              
+    covered/total bins:                                     4          4                      
+    missing/total bins:                                     0          4                      
+    % Hit:                                             100.0%        100                      
+    Coverpoint rst_n_cp                                100.0%        100    Covered              
+        covered/total bins:                                 4          4                      
+        missing/total bins:                                 0          4                      
+        % Hit:                                         100.0%        100                      
+        bin active                                         43          1    Covered              
+        bin inactive                                       58          1    Covered              
+        bin inactive_to_active                             27          1    Covered              
+        bin active_to_inactive                             27          1    Covered              
 
-TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
-
-Total Coverage By Instance (filtered view): 100.00%
-
+TOTAL COVERGROUP COVERAGE: 100.0%  COVERGROUP TYPES: 1

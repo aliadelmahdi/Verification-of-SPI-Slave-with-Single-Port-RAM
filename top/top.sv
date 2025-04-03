@@ -58,7 +58,7 @@ module tb_top;
         );
 
       
-    bind SPI_slave SPI_slave_sva SPI_ram_sva_inst  (
+    bind SPI_slave SPI_slave_sva SPI_slave_inst  (
         .MOSI(MOSI),
         .SS_n(SS_n),
         .clk(clk),

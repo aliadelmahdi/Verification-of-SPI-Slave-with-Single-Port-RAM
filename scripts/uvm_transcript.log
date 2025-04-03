@@ -1,16 +1,15 @@
 # Start Simulation
 # vsim -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug 
 # vsim -voptargs="+acc" work.tb_top -coverage -classdebug -uvmcontrol=all -fsmdebug 
-# Start time: 19:43:49 on Apr 03,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Start time: 20:20:38 on Apr 03,2025
+# ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: top/top.sv(30): (vopt-2685) [TFMPC] - Too few port connections for 'slave'.  Expected 9, found 7.
 # ** Warning: top/top.sv(30): (vopt-2718) [TFMPC] - Missing connection for port 'tx_data'.
 # ** Warning: top/top.sv(30): (vopt-2718) [TFMPC] - Missing connection for port 'tx_valid'.
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=3.
 # //  Questa Sim-64
-# //  Version 2021.1 win64 Jan 19 2021
+# //  Version 10.6c win64 Jul 26 2017
 # //
-# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  Copyright 1991-2017 Mentor Graphics Corporation
 # //  All Rights Reserved.
 # //
 # //  QuestaSim and its associated documentation contain trade
@@ -24,7 +23,7 @@
 # Loading sv_std.std
 # Loading work.SPI_if(fast)
 # Loading work.shared_pkg(fast)
-# Loading mtiUvm.uvm_pkg(fast)
+# Loading mtiUvm.uvm_pkg
 # Loading work.SPI_slave_seq_item_pkg(fast)
 # Loading work.SPI_slave_monitor_pkg(fast)
 # Loading work.SPI_slave_sequencer_pkg(fast)
@@ -44,16 +43,16 @@
 # Loading work.SPI_env_pkg(fast)
 # Loading work.SPI_test_pkg(fast)
 # Loading work.spi_defines_svh_unit(fast)
-# Loading mtiUvm.questa_uvm_pkg(fast)
 # Loading work.tb_top(fast)
-# Loading work.SPI_if(fast__2)
+# Loading work.SPI_if(fast)
 # Loading work.SPI_slave(fast)
 # Loading work.SPI_slave_sva(fast)
 # Loading work.RAM_Sync_Single_port(fast)
 # Loading work.golden_model(fast)
-# ** Warning: (vsim-3015) [PCDPC] - Port size (8) does not match connection size (1) for port 'tx_data'. The port definition is at: design/SPI_Assertions/SPI_slave_sva.sv(14).
-#    Time: 0 ps  Iteration: 0  Instance: /tb_top/slave/SPI_ram_sva_inst File: top/top.sv Line: 61
-# Loading C:/questasim64_2021.1/uvm-1.1d\win64\uvm_dpi.dll
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# ** Warning: (vsim-3015) top/top.sv(61): [PCDPC] - Port size (8) does not match connection size (1) for port 'tx_data'. The port definition is at: design/SPI_Assertions/SPI_slave_sva.sv(14).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top/slave/SPI_ram_sva_inst File: design/SPI_Assertions/SPI_slave_sva.sv
+# Loading G:/QuestaSim/installed/uvm-1.1d\win64\uvm_dpi.dll
 # log -r /*
 # # Add signals to the wave window
 # add wave /tb_top/RAM/*
@@ -84,8 +83,8 @@
 # 
 #       (Specify +UVM_NO_RELNOTES to turn off this notice)
 # 
-# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
-# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(all)
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(all)
 # UVM_INFO @ 0: reporter [RNTST] Running test SPI_test...
 # 
 #### Factory Configuration (*)
@@ -163,7 +162,7 @@
 # ** Error: Failed to assert reset
 #    Time: 995 ps Started: 995 ps  Scope: tb_top.slave.SPI_ram_sva_inst.assert_reset File: design/SPI_Assertions/SPI_slave_sva.sv Line: 33
 # UVM_INFO top/test/test.sv(71) @ 1010: uvm_test_top [run_phase] Stimulus Generation Ended
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 1010: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 1010: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # UVM_INFO top/test/enviroment/scoreboard/SPI_scoreboard.sv(57) @ 1010: uvm_test_top.env.spi_sb [report_phase] At time 1010: Simulation Ends and Error count= 0, Correct count= 0
 # 
 # --- UVM Report Summary ---
