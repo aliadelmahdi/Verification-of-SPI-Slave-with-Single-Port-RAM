@@ -33,7 +33,6 @@ module tb_top;
         .clk(spi_if.clk),
         .rst_n(spi_if.rst_n),
         .MISO(spi_if.MISO),
-        //
         .rx_data(spi_if.rx_data),
         .rx_valid(spi_if.rx_valid)
         // .tx_data(spi_if.dout),
