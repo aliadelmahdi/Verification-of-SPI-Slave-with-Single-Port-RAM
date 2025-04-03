@@ -1,4 +1,4 @@
-module SPI_slave #(parameter IDLE = 3'b000,
+module 11111111111 #(parameter IDLE = 3'b000,
 	 CHK_CMD = 3'b001,
 	 WRITE = 3'b010,
 	 READ_ADD = 3'b011,

@@ -1,6 +1,6 @@
 # gtkwave waves/waves.vcd
 # vsim -c
-# cd {E:/Shared Folders/Uni/courses/Digital circuit/digital github codes/Done/Verification-of-SPI-Slave-with-Single-Port-RAM}
+# cd {E:\\Shared Folders\\Uni\\courses\\Digital circuit\\digital github codes\\Done\\spi\\Verification-of-SPI-Slave-with-Single-Port-RAM}
 # do "scripts/run.tcl"
 vlib work
 vlog +incdir+./interface -f "scripts/list.list" -mfcu +cover -covercells
