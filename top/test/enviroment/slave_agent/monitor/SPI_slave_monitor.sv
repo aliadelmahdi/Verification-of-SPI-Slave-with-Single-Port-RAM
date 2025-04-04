@@ -10,6 +10,7 @@ package SPI_slave_monitor_pkg;
         SPI_slave_seq_item slave_response_seq_item;
         uvm_analysis_port #(SPI_slave_seq_item) slave_monitor_ap;
 
+        // Default Constructor
         function new(string name = "SPI_slave_monitor",uvm_component parent);
             super.new(name,parent);
         endfunction

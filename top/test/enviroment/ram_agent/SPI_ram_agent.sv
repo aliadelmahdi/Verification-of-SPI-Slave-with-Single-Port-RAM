@@ -18,10 +18,12 @@ package SPI_ram_agent_pkg;
         uvm_analysis_port #(SPI_ram_seq_item) spi_ram_agent_ap;
         uvm_active_passive_enum is_active;
 
+        // Default Constructor
         function new(string name = "SPI_ram_agent", uvm_component parent);
             super.new(name,parent);
         endfunction
 
+        // Build Phase
         function void build_phase(uvm_phase phase);
             super.build_phase(phase);
 
@@ -36,6 +38,7 @@ package SPI_ram_agent_pkg;
             spi_ram_agent_ap = new("spi_ram_agent_ap",this);
         endfunction
 
+        // Connect Phase
         function void connect_phase(uvm_phase phase);
             if(is_active==UVM_ACTIVE)begin
               spi_ram_drv.seq_item_port.connect(spi_ram_seqr.seq_item_export);

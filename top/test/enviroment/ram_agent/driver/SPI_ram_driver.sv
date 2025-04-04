@@ -12,6 +12,7 @@ package SPI_ram_driver_pkg;
         virtual SPI_if spi_if;
         SPI_ram_seq_item stimulus_seq_item;
 
+        // Default Constructor
         function new(string name = "SPI_ram_driver", uvm_component parent);
             super.new(name,parent);
         endfunction
@@ -44,4 +45,3 @@ package SPI_ram_driver_pkg;
     endclass : SPI_ram_driver
 
 endpackage : SPI_ram_driver_pkg
-

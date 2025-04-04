@@ -69,7 +69,9 @@ package SPI_scoreboard_pkg;
         endfunction
 
         function void check_ram_results(SPI_ram_seq_item seq_item_ch_ram);
-            if (0) begin
+            if (seq_item_ch_ram.tx_valid != seq_item_ch_ram.tx_valid_ref
+            || seq_item_ch_ram.dout != seq_item_ch_ram.dout_ref
+            ) begin
                 error_count++;
                 `uvm_error("run_phase","Comparison Error between the golden model and the DUT")
                 `uvm_info("RAM", $sformatf("Ram Transaction:\n%s", seq_item_ch_ram.sprint()), UVM_MEDIUM)

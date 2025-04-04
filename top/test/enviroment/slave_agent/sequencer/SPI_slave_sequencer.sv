@@ -8,6 +8,7 @@ package SPI_slave_sequencer_pkg;
 
         `uvm_component_utils(SPI_slave_sequencer);
 
+        // Default Constructor
         function new(string name = "SPI_slave_sequence", uvm_component parent);
             super.new(name,parent);
         endfunction

@@ -18,9 +18,6 @@ package SPI_slave_seq_item_pkg;
         logic MISO;
         logic rx_data;
 
-        // logic [7:0] dout == tx_data
-        // logic [9:0] rx_data == din
-        // Golden model output signals
         logic rx_valid_ref;
         logic MISO_ref;
         logic rx_data_ref;

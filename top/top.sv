@@ -13,8 +13,6 @@ module tb_top;
         forever #(`CLK_PERIOD/2) clk = ~ clk;
     end
 
-   
-
     SPI_env env_instance; // Instantiate the SPI enviroment
     SPI_test test; // Instantiate the SPI test
 
@@ -52,9 +50,7 @@ module tb_top;
         .tx_valid(spi_if.tx_valid)
     );
 
-    golden_model GLD (
-        .clk(spi_if.clk)
-        );
+    ram_golden_model RAM_GLD (spi_if);
 
       
     bind SPI_slave SPI_slave_sva SPI_slave_inst  (

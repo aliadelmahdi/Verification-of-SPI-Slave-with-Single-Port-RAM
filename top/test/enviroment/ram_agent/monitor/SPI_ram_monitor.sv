@@ -38,6 +38,9 @@ package SPI_ram_monitor_pkg;
                 ram_response_seq_item.rx_data = spi_if.rx_data;
                 ram_response_seq_item.dout = spi_if.dout;
                 ram_response_seq_item.tx_valid = spi_if.tx_valid;
+                ram_response_seq_item.tx_valid_ref = spi_if.tx_valid_ref;
+                ram_response_seq_item.dout_ref = spi_if.dout_ref;
+
                 ram_monitor_ap.write(ram_response_seq_item);
                 `uvm_info("run_phase", ram_response_seq_item.sprint(), UVM_HIGH)
             end

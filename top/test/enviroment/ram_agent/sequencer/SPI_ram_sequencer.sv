@@ -7,7 +7,8 @@ package SPI_ram_sequencer_pkg;
     class SPI_ram_sequencer extends uvm_sequencer #(SPI_ram_seq_item);
 
         `uvm_component_utils(SPI_ram_sequencer);
-
+        
+        // Default Constructor
         function new(string name = "SPI_ram_sequence", uvm_component parent);
             super.new(name,parent);
         endfunction
