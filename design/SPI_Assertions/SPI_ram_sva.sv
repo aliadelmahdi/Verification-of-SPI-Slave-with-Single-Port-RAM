@@ -13,9 +13,77 @@ module SPI_ram_sva(
     input clk,rst_n,rx_valid,
     input[MEM_WIDTH+1:0]din,
     input logic [MEM_WIDTH-1:0]dout,
-    input logic tx_valid
+    input logic tx_valid,
+    input logic [ADDR_SIZE-1:0]addr_rd,addr_wr,
+    input logic [MEM_WIDTH-1:0]mem[MEM_DEPTH-1:0]
     );
     
+
+ property check_reset;
+            (!rst_n)|=> ( (dout==0)
+                      && !tx_valid
+                     ); 
+                     
+    endproperty
+
+    assert_check_reset: assert property (@(posedge clk) check_reset)
+
+        else begin
+        $error("Failed to assert reset");
+        end
+
+property addr_wr_stored;
+    @(posedge clk) disable iff(!rst_n)
+            (rx_valid && din[9:8]==2'b00) |=> (addr_wr == din[7:0]);
+                     
+    endproperty
+
+        assert_addr_wr_stored: assert property (@(posedge clk) addr_wr_stored)
+
+        else $error("Failed to assert addr_wr_stored");
+
+property data_wr_stored;
+    @(posedge clk) disable iff(!rst_n)
+            (rx_valid && din[9:8]==2'b01) |=> (mem[addr_wr] == din[7:0]);
+                     
+    endproperty
+
+        assert_data_wr_stored: assert property (@(posedge clk) data_wr_stored)
+
+        else $error("Failed to assert data_wr_stored");
+
+
+property addr_rd_stored;
+    @(posedge clk) disable iff(!rst_n)
+            (rx_valid && din[9:8]==2'b10) |=> (addr_rd == din[7:0]);
+                     
+    endproperty
+
+        assert_addr_rd_stored: assert property (@(posedge clk) addr_rd_stored)
+
+        else $error("Failed to assert addr_rd_stored");
+
+property data_rd_stored;
+    @(posedge clk) disable iff(!rst_n)
+            ( din[9:8]==2'b11) |=> ((mem[addr_rd] == din[7:0]) && (tx_valid==1));
+                     
+    endproperty
+
+        assert_data_rd_stored: assert property (@(posedge clk) data_rd_stored)
+
+        else $error("Failed to assert data_rd_stored");
+
+property Ram_Idle;
+    @(posedge clk) disable iff(!rst_n)
+            ( !rx_valid && !(din[9:8]==2'b11)) |=> ((tx_valid==0));
+                     
+    endproperty
+
+        assert_Ram_Idle: assert property (@(posedge clk) Ram_Idle)
+
+        else $error("Failed to assert Ram_Idle");
+
+
 endmodule
 
 

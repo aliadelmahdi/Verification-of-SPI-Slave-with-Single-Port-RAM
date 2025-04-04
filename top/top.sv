@@ -39,7 +39,7 @@ module tb_top;
 
     // RAM_Sync_Single_port instantiation
     RAM_Sync_Single_port #(
-        .MEM_DEPTH(spi_if.ADDR_SIZE),
+        .MEM_DEPTH(spi_if.MEM_DEPTH),
         .ADDR_SIZE(spi_if.ADDR_SIZE),
         .MEM_WIDTH(spi_if.MEM_WIDTH)
     ) RAM (
@@ -68,13 +68,17 @@ module tb_top;
         .cs(slave.cs)
     );
 
+
     bind RAM_Sync_Single_port SPI_ram_sva RAM_sva_inst (
         .din(rx_data),
         .rx_valid(rx_valid),
         .clk(clk),
         .rst_n(rst_n),
         .dout(tx_data),
-        .tx_valid(tx_valid)
+        .tx_valid(tx_valid),
+        .addr_rd(RAM.addr_rd),
+        .addr_wr(RAM.addr_wr),
+        .mem(RAM.mem)
     );   
 
     initial begin
