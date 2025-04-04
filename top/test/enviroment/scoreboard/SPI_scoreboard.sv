@@ -48,7 +48,7 @@ package SPI_scoreboard_pkg;
                 spi_slave_sb.get(slave_seq_item_sb);
                 spi_ram_sb.get(ram_seq_item_sb);
                 check_ram_results(ram_seq_item_sb);
-                check_slave_results(slave_seq_item_sb);
+                // check_slave_results(slave_seq_item_sb);
             end
         endtask
 

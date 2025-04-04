@@ -66,7 +66,7 @@ package SPI_test_pkg;
             phase.raise_objection(this); // Raise an objection to prevent the test from ending
             // Reset sequence
             `uvm_info("run_phase","stimulus Generation started",UVM_LOW)
-            // spi_slave_reset_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
+            spi_slave_reset_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
             spi_ram_reset_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
             `uvm_info("run_phase","Reset Deasserted",UVM_LOW)
             // Main Sequence

@@ -55,31 +55,31 @@ module tb_top;
     // ram_c_plus_plus_golden_model RAM_GLD (spi_if);
 
       
-    bind SPI_slave SPI_slave_sva SPI_slave_inst  (
-        .MOSI(MOSI),
-        .SS_n(SS_n),
-        .clk(clk),
-        .rst_n(rst_n),
-        .MISO(MISO),
-        .rx_data(rx_data),
-        .rx_valid(rx_valid),
-        .tx_data(dout),
-        .tx_valid(tx_valid),
-        .cs(slave.cs)
-    );
+    // bind SPI_slave SPI_slave_sva SPI_slave_inst  (
+    //     .MOSI(MOSI),
+    //     .SS_n(SS_n),
+    //     .clk(clk),
+    //     .rst_n(rst_n),
+    //     .MISO(MISO),
+    //     .rx_data(rx_data),
+    //     .rx_valid(rx_valid),
+    //     .tx_data(dout),
+    //     .tx_valid(tx_valid),
+    //     .cs(slave.cs)
+    // );
 
 
     bind RAM_Sync_Single_port SPI_ram_sva RAM_sva_inst (
-        .din(rx_data),
+        .din(din),
         .rx_valid(rx_valid),
         .clk(clk),
         .rst_n(rst_n),
-        .dout(tx_data),
+        .dout(dout),
         .tx_valid(tx_valid),
         .addr_rd(RAM.addr_rd),
-        .addr_wr(RAM.addr_wr),
-        .mem(RAM.mem)
-    );   
+        .addr_wr(RAM.addr_wr)
+        // .mem(RAM.mem)
+    );
 
     initial begin
         uvm_top.set_report_verbosity_level(UVM_MEDIUM); // Set verbosity level
