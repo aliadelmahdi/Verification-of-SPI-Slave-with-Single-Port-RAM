@@ -8,6 +8,7 @@ package SPI_test_pkg;
             SPI_slave_main_sequence_pkg::*,
             SPI_ram_main_sequence_pkg::*,
             SPI_slave_reset_sequence_pkg::*,
+            SPI_ram_reset_sequence_pkg::*,
             SPI_slave_seq_item_pkg::*,
             SPI_ram_seq_item_pkg::*;
     `include "uvm_macros.svh"
@@ -21,6 +22,7 @@ package SPI_test_pkg;
         SPI_slave_main_sequence spi_slave_main_seq; // Slave main test sequence
         SPI_ram_main_sequence spi_ram_main_seq; // Ram main test sequence
         SPI_slave_reset_sequence spi_slave_reset_seq; // Slave reset test sequence
+        SPI_ram_reset_sequence spi_ram_reset_seq; // Ram reset test sequence
 
         // Default constructor
         function new(string name = "SPI_test", uvm_component parent);
@@ -38,6 +40,7 @@ package SPI_test_pkg;
             spi_slave_main_seq = SPI_slave_main_sequence::type_id::create("slave_main_seq",this);
             spi_ram_main_seq = SPI_ram_main_sequence::type_id::create("ram_main_seq",this);
             spi_slave_reset_seq = SPI_slave_reset_sequence::type_id::create("reset_seq",this);
+            spi_ram_reset_seq = SPI_ram_reset_sequence::type_id::create("reset_seq",this);
 
             // Retrieve the virtual interface for SPI slave from the UVM configuration database
             if(!uvm_config_db #(virtual SPI_if)::get(this,"","spi_if",spi_slave_cnfg.spi_if))  
@@ -63,12 +66,13 @@ package SPI_test_pkg;
             phase.raise_objection(this); // Raise an objection to prevent the test from ending
             // Reset sequence
             `uvm_info("run_phase","stimulus Generation started",UVM_LOW)
-            spi_slave_reset_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
+            // spi_slave_reset_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
+            spi_ram_reset_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
             `uvm_info("run_phase","Reset Deasserted",UVM_LOW)
             // Main Sequence
             `uvm_info("run_phase", "Stimulus Generation Started",UVM_LOW)
-            // spi_ram_main_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
-            spi_slave_main_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
+            spi_ram_main_seq.start(spi_env.spi_ram_agent.spi_ram_seqr);
+            // spi_slave_main_seq.start(spi_env.spi_slave_agent.spi_slave_seqr);
             `uvm_info("run_phase", "Stimulus Generation Ended",UVM_LOW) 
 
             phase.drop_objection(this); // Drop the objection to allow the test to complete
