@@ -34,9 +34,9 @@ module tb_top;
         .rst_n(spi_if.rst_n),
         .MISO(spi_if.MISO),
         .rx_data(spi_if.rx_data),
-        .rx_valid(spi_if.rx_valid)
-        // .tx_data(spi_if.dout),
-        // .tx_valid(spi_if.tx_valid)
+        .rx_valid(spi_if.rx_valid),
+        .tx_data(spi_if.dout),
+        .tx_valid(spi_if.tx_valid)
     );
 
     // RAM_Sync_Single_port instantiation
@@ -63,7 +63,6 @@ module tb_top;
         .clk(clk),
         .rst_n(rst_n),
         .MISO(MISO),
-        //
         .rx_data(rx_data),
         .rx_valid(rx_valid),
         .tx_data(dout),
@@ -71,14 +70,14 @@ module tb_top;
         .cs(slave.cs)
     );
 
-    // bind RAM RAM_sva RAM_sva_inst (
-    //     .din(rx_data),
-    //     .rx_valid(rx_valid),
-    //     .clk(clk),
-    //     .rst_n(rst_n),
-    //     .dout(tx_data),
-    //     .tx_valid(tx_valid)
-    // );   
+    bind RAM_Sync_Single_port SPI_ram_sva RAM_sva_inst (
+        .din(rx_data),
+        .rx_valid(rx_valid),
+        .clk(clk),
+        .rst_n(rst_n),
+        .dout(tx_data),
+        .tx_valid(tx_valid)
+    );   
 
     initial begin
         uvm_top.set_report_verbosity_level(UVM_MEDIUM); // Set verbosity level

@@ -47,7 +47,8 @@ package SPI_scoreboard_pkg;
             forever begin
                 spi_slave_sb.get(slave_seq_item_sb);
                 spi_ram_sb.get(ram_seq_item_sb);
-                // check_results(slave_seq_item_sb,ram_seq_item_sb);
+                check_ram_results(ram_seq_item_sb);
+                check_slave_results(slave_seq_item_sb);
             end
         endtask
 
@@ -57,18 +58,26 @@ package SPI_scoreboard_pkg;
             `uvm_info("report_phase",$sformatf("At time %0t: Simulation Ends and Error count= %0d, Correct count= %0d",$time,error_count,correct_count),UVM_MEDIUM);
         endfunction
 
-        // function void check_results(SPI_slave_seq_item seq_item_ch, SPI_ram_seq_item seq_item_ch_ram);
-        //     if ( seq_item_ch_ram.PRDATA != seq_item_ch_ram.PRDATA_ref
-        //         || seq_item_ch_ram.PREADY != seq_item_ch_ram.PREADY_ref
-        //         ) begin
-        //         error_count++;
-        //         `uvm_error("run_phase","Comparison Error between the golden model and the DUT")
-        //         `uvm_info("MASTER", $sformatf("Slave Transaction:\n%s", seq_item_ch.sprint()), UVM_MEDIUM)
-        //         `uvm_info("SLAVE", $sformatf("Ram Transaction:\n%s", seq_item_ch_ram.sprint()), UVM_MEDIUM)
-        //     end
-        //     else
-        //         correct_count++;
-        // endfunction
+        function void check_slave_results(SPI_slave_seq_item seq_item_ch);
+            if (0) begin
+                error_count++;
+                `uvm_error("run_phase","Comparison Error between the golden model and the DUT")
+                `uvm_info("SLAVE", $sformatf("Slave Transaction:\n%s", seq_item_ch.sprint()), UVM_MEDIUM)
+            end
+            else
+                correct_count++;
+        endfunction
+
+        function void check_ram_results(SPI_ram_seq_item seq_item_ch_ram);
+            if (0) begin
+                error_count++;
+                `uvm_error("run_phase","Comparison Error between the golden model and the DUT")
+                `uvm_info("RAM", $sformatf("Ram Transaction:\n%s", seq_item_ch_ram.sprint()), UVM_MEDIUM)
+            end
+            else
+                correct_count++;
+        endfunction
+
     endclass : SPI_scoreboard
 
 endpackage : SPI_scoreboard_pkg

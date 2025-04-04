@@ -1,12 +1,12 @@
 module SPI_slave(clk,rst_n,SS_n,MOSI,MISO,tx_valid,tx_data,rx_data,rx_valid);
 
   input clk,rst_n,SS_n,MOSI;
-  output wire tx_valid;
-  output wire[7:0]tx_data;
+  input wire tx_valid;
+  input wire[7:0]tx_data;
   output reg rx_valid;
   output reg MISO;
-  reg done_receiving;
   output reg [9:0]rx_data;
+  reg done_receiving;
 
   parameter IDLE=3'b000;
   parameter CHK_CMD=3'b001;

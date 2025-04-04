@@ -34,6 +34,10 @@ package SPI_ram_monitor_pkg;
                 ram_response_seq_item = SPI_ram_seq_item::type_id::create("ram_response_seq_item");
                 @(negedge spi_if.clk);
                 ram_response_seq_item.rst_n = spi_if.rst_n;
+                ram_response_seq_item.rx_valid = spi_if.rx_valid;
+                ram_response_seq_item.rx_data = spi_if.rx_data;
+                ram_response_seq_item.dout = spi_if.dout;
+                ram_response_seq_item.tx_valid = spi_if.tx_valid;
                 ram_monitor_ap.write(ram_response_seq_item);
                 `uvm_info("run_phase", ram_response_seq_item.sprint(), UVM_HIGH)
             end

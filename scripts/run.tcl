@@ -29,4 +29,4 @@ coverage report -detail -cvg -directive  \
     /SPI_coverage_pkg/SPI_coverage/*
 #quit -sim
 # Save Coverage Report
-# vcover report top.ucdb -details -annotate -all -output "reports/Coverage Report - Code, Assertions, and Directives.txt"
+vcover report top.ucdb -details -annotate -all -output "reports/Coverage Report - Code, Assertions, and Directives.txt"

@@ -33,6 +33,8 @@ package SPI_ram_driver_pkg;
                 stimulus_seq_item = SPI_ram_seq_item::type_id::create("ram_stimulus_seq_item");
                 seq_item_port.get_next_item(stimulus_seq_item);
                 spi_if.rst_n = stimulus_seq_item.rst_n;
+                spi_if.rx_valid = stimulus_seq_item.rx_valid;
+                spi_if.rx_data = stimulus_seq_item.rx_data;
                 @(negedge spi_if.clk)
                 seq_item_port.item_done();
                 `uvm_info("run_phase",stimulus_seq_item.sprint(),UVM_HIGH)
@@ -42,3 +44,4 @@ package SPI_ram_driver_pkg;
     endclass : SPI_ram_driver
 
 endpackage : SPI_ram_driver_pkg
+

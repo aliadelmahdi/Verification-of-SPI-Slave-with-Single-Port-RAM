@@ -49,7 +49,8 @@ package SPI_test_pkg;
             // Set the slave as an active agent (drives transactions)
             spi_slave_cnfg.is_active =UVM_ACTIVE;
             // Set the ram as a passive agent (only monitors transactions)
-            spi_ram_cnfg.is_active =UVM_PASSIVE;
+            // spi_ram_cnfg.is_active =UVM_PASSIVE;
+            spi_ram_cnfg.is_active =UVM_ACTIVE;
 
             // Store the SPI slave and ram configuration objects in the UVM configuration database
             uvm_config_db # (SPI_config)::set(this , "*" , "CFG",spi_slave_cnfg);

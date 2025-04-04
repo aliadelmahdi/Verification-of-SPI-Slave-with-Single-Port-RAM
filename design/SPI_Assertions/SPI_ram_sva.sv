@@ -10,13 +10,12 @@ import shared_pkg::*; // For enums and parameters
 `timescale `TIME_UNIT / `TIME_PRECISION
 
 module SPI_ram_sva(
-   
-    
-    input MOSI,clk,rst_n,SS_n,tx_valid,
-	input logic [7:0] tx_data,
-
-	output logic MISO,rx_valid,
-	output logic [9:0] rx_data
+    input clk,rst_n,rx_valid,
+    input[MEM_WIDTH+1:0]din,
+    input logic [MEM_WIDTH-1:0]dout,
+    input logic tx_valid
     );
     
 endmodule
+
+

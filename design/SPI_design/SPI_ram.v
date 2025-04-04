@@ -18,22 +18,21 @@ always@(posedge clk)begin
   tx_valid<=0;
   end
   else begin 
-   if(rx_valid)begin
-    case(din[9:8])
-    2'b00:addr_wr<=din[7:0];
-    2'b01:mem[addr_wr]<=din[7:0];
-    2'b10:addr_rd<=din[7:0];
-    endcase
-   end 
+    if(rx_valid)begin
+        case(din[9:8])
+        2'b00:addr_wr<=din[7:0];
+        2'b01:mem[addr_wr]<=din[7:0];
+        2'b10:addr_rd<=din[7:0];
+        endcase
+    end 
     if(din[9:8]==2'b11)begin 
-    dout<=mem[addr_rd];
-    tx_valid<=1;
+      dout<=mem[addr_rd];
+      tx_valid<=1;
     end
     else
-    tx_valid<=0;
+      tx_valid<=0;
    end 
   
 end
-
  
 endmodule

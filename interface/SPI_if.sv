@@ -22,8 +22,8 @@ interface SPI_if(input bit clk);
 
   	logic rst_n,SS_n,MOSI;
 	logic MISO;
-	logic [7:0] dout;
+	logic [7:0] dout; // tx_data
 	logic tx_valid,rx_valid;
-	logic [9:0] rx_data;
+	logic [9:0] rx_data; // din
 	
 endinterface

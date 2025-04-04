@@ -10,9 +10,9 @@ package shared_pkg;
     parameter READ_DATA=3'b011;
     parameter WRITE=3'b100;
 
-    parameter MEM_DEPTH = 256;
-	parameter ADDR_SIZE = 8;
-
+    parameter MEM_DEPTH=256;
+    parameter ADDR_SIZE=8;
+    parameter MEM_WIDTH=8;
     
 endpackage
     

@@ -32,6 +32,13 @@ package SPI_slave_monitor_pkg;
                 slave_response_seq_item = SPI_slave_seq_item::type_id::create("slave_response_seq_item");
                 @(negedge spi_if.clk);
                 slave_response_seq_item.rst_n = spi_if.rst_n;
+                slave_response_seq_item.SS_n = spi_if.SS_n;
+                slave_response_seq_item.MOSI = spi_if.MOSI;
+                slave_response_seq_item.tx_valid = spi_if.tx_valid;
+                slave_response_seq_item.rx_valid = spi_if.rx_valid;
+                slave_response_seq_item.MISO = spi_if.MISO;
+                slave_response_seq_item.rx_data = spi_if.rx_data;
+                slave_response_seq_item.dout = spi_if.dout;
                 slave_monitor_ap.write(slave_response_seq_item);
                 `uvm_info("run_phase", slave_response_seq_item.sprint(), UVM_HIGH)
             end

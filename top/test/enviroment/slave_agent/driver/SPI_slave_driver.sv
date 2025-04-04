@@ -34,6 +34,10 @@ package SPI_slave_driver_pkg;
                 stimulus_seq_item = SPI_slave_seq_item::type_id::create("slave_stimulus_seq_item");
                 seq_item_port.get_next_item(stimulus_seq_item);
                 spi_if.rst_n = stimulus_seq_item.rst_n;
+                spi_if.SS_n = stimulus_seq_item.SS_n;
+                spi_if.MOSI = stimulus_seq_item.MOSI;
+                spi_if.dout = stimulus_seq_item.dout;
+                spi_if.tx_valid = stimulus_seq_item.tx_valid;
                 @(negedge spi_if.clk)
                 seq_item_port.item_done();
                 `uvm_info("run_phase",stimulus_seq_item.sprint(),UVM_HIGH)
