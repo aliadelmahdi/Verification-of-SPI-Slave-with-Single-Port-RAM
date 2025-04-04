@@ -3,13 +3,17 @@
 # cd {E:\\Shared Folders\\Uni\\courses\\Digital circuit\\digital github codes\\Done\\spi\\Verification-of-SPI-Slave-with-Single-Port-RAM}
 # cd {G:\\Youhana doucuments\\VERILOG\\System verilog\\SPI_Slave_AH_DESIGN\\Verification-of-SPI-Slave-with-Single-Port-RAM}
 # do "scripts/run.tcl"
+# Compile the C++ DPI-C file (Golden Model) into a shared library
+exec g++ -shared -fPIC -o "design/SPI_design/Golden Models/dpi_memory.dll" "design/SPI_design/Golden Models/dpi_memory.cpp"
 vlib work
 vlog +incdir+./interface -f "scripts/list.list" -mfcu +cover -covercells
 # Enable the transcript (even in the compile version of questa sim)
 # transcript on
 # transcript file scripts/uvm_transcript.log
-# Start Simulation
-vsim -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug 
+# Start Simulation with C++ golden model
+vsim -voptargs=+acc -sv_lib "design/SPI_design/Golden Models/dpi_memory" work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug 
+
+# vsim -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug 
 log -r /*
 # # Add signals to the wave window
 add wave /tb_top/RAM/*

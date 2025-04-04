@@ -40,7 +40,8 @@ module tb_top;
     // RAM_Sync_Single_port instantiation
     RAM_Sync_Single_port #(
         .MEM_DEPTH(spi_if.ADDR_SIZE),
-        .ADDR_SIZE(spi_if.ADDR_SIZE)
+        .ADDR_SIZE(spi_if.ADDR_SIZE),
+        .MEM_WIDTH(spi_if.MEM_WIDTH)
     ) RAM (
         .din(spi_if.rx_data),
         .rx_valid(spi_if.rx_valid),
@@ -51,6 +52,7 @@ module tb_top;
     );
 
     ram_golden_model RAM_GLD (spi_if);
+    // ram_c_plus_plus_golden_model RAM_GLD (spi_if);
 
       
     bind SPI_slave SPI_slave_sva SPI_slave_inst  (
