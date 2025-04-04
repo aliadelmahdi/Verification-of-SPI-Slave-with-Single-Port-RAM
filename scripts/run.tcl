@@ -6,8 +6,8 @@
 vlib work
 vlog +incdir+./interface -f "scripts/list.list" -mfcu +cover -covercells
 # Enable the transcript (even in the compile version of questa sim)
-transcript on
-transcript file scripts/uvm_transcript.log
+# transcript on
+# transcript file scripts/uvm_transcript.log
 # Start Simulation
 vsim -voptargs=+acc work.tb_top -cover -classdebug -uvmcontrol=all -fsmdebug 
 log -r /*
@@ -21,7 +21,7 @@ vcd file waves/waves.vcd
 vcd add -r /* 
 run -all
 # Disable the transcript
-transcript off
+# transcript off
 vcd flush
 # Functional Coverage Report
 coverage report -detail -cvg -directive  \
