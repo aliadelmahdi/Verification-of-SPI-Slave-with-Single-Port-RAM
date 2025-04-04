@@ -20,8 +20,6 @@ always@(posedge clk)begin
   addr_wr<=0;// Fixed this line for the designer #verfication team
   end
   else begin 
-      tx_valid<=0;
-
     if(rx_valid)begin
         case(din[9:8])
         2'b00:addr_wr<=din[7:0];
