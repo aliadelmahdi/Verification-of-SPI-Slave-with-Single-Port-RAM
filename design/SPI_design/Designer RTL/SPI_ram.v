@@ -17,10 +17,11 @@ always@(posedge clk)begin
   dout<=0;
   tx_valid<=0;
   addr_rd <= 0;// Fixed this line for the designer #verfication team
-  addr_wr<=0;// Fixed this line for the designer #verfication team
+  // addr_wr<=0;// Fixed this line for the designer #verfication team
   end
   else begin 
     if(rx_valid)begin
+      
         case(din[9:8])
         2'b00:addr_wr<=din[7:0];
         2'b01:mem[addr_wr]<=din[7:0];

@@ -70,11 +70,11 @@ module tb_top;
 
 
     bind RAM_Sync_Single_port SPI_ram_sva RAM_sva_inst (
-        .din(rx_data),
+        .din(din),
         .rx_valid(rx_valid),
         .clk(clk),
         .rst_n(rst_n),
-        .dout(tx_data),
+        .dout(dout),
         .tx_valid(tx_valid),
         .addr_rd(RAM.addr_rd),
         .addr_wr(RAM.addr_wr),

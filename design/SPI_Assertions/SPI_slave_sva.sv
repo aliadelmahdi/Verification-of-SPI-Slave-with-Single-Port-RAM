@@ -54,7 +54,7 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
                      
     endproperty
 
-        assert_idle_to_idle: assert property (@(posedge clk) idle_to_idle)
+        assert_idle_to_idle: assert property ( idle_to_idle)
 
         else $error("Failed to assert idle_to_idle transition");
 
@@ -63,7 +63,7 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
             (cs==IDLE && SS_n==0) |=> (cs == CHK_CMD); 
     endproperty
 
-    assert_idle_to_CHK_CMD: assert property (@(posedge clk) idle_to_CHK_CMD)
+    assert_idle_to_CHK_CMD: assert property ( idle_to_CHK_CMD)
 
         else $error("Failed to assert idle_to_CHK_CMD transition");
 
@@ -72,7 +72,7 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
             (cs==CHK_CMD && SS_n==1) |=> (cs == IDLE); 
     endproperty
 
-    assert_CHK_CMD_to_idle: assert property (@(posedge clk) CHK_CMD_to_idle)
+    assert_CHK_CMD_to_idle: assert property ( CHK_CMD_to_idle)
 
         else $error("Failed to assert CHK_CMD_to_idle transition");
 
@@ -81,7 +81,7 @@ module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_val
             (cs==CHK_CMD && (!SS_n && !MOSI) )|=> (cs == WRITE); 
     endproperty
 
-    assert_CHK_CMD_to_write: assert property (@(posedge clk) CHK_CMD_to_write)
+    assert_CHK_CMD_to_write: assert property ( CHK_CMD_to_write)
 
         else $error("Failed to assert CHK_CMD_to_write transition");      
     
