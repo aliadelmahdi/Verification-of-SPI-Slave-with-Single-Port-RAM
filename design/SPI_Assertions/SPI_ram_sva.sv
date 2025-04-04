@@ -30,6 +30,8 @@ module SPI_ram_sva(
 
         else begin
         $error("Failed to assert reset");
+        $display("dout = %b, tx_valid = %b", 
+                      dout, tx_valid);
         end
 
 property addr_wr_stored;
