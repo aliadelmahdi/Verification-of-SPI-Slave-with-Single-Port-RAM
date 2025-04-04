@@ -79,9 +79,9 @@ module tb_top;
 
     initial begin
         uvm_top.set_report_verbosity_level(UVM_MEDIUM); // Set verbosity level
-        uvm_top.finish_on_completion = `DISABLE_FINISH; // Prevent UVM from calling $finish
+        // uvm_top.finish_on_completion = `DISABLE_FINISH; // Prevent UVM from calling $finish
         uvm_config_db#(virtual SPI_if)::set(null, "*", "spi_if", spi_if); // Set SPI interface globally
         run_test("SPI_test"); // Start the UVM test
-        $stop; // Stop simulation after test execution
+        // $stop; // Stop simulation after test execution
     end
 endmodule : tb_top

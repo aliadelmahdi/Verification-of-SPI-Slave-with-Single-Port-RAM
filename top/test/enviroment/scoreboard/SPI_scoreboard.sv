@@ -74,7 +74,15 @@ package SPI_scoreboard_pkg;
             ) begin
                 error_count++;
                 `uvm_error("run_phase","Comparison Error between the golden model and the DUT")
-                `uvm_info("RAM", $sformatf("Ram Transaction:\n%s", seq_item_ch_ram.sprint()), UVM_MEDIUM)
+                `uvm_info("run_phase", $sformatf("Ram Transaction:\n%s", seq_item_ch_ram.sprint()), UVM_MEDIUM)
+                
+                if (seq_item_ch_ram.tx_valid != seq_item_ch_ram.tx_valid_ref)
+                    `uvm_info("run_phase", $sformatf("Mismatch: tx valid (DUT = %0b, REF = %0b)", seq_item_ch_ram.tx_valid, seq_item_ch_ram.tx_valid_ref), UVM_MEDIUM)
+        
+                if (seq_item_ch_ram.dout != seq_item_ch_ram.dout_ref)
+                    `uvm_info("run_phase", $sformatf("Mismatch: dout (DUT = %0d, REF = %0d)", seq_item_ch_ram.dout, seq_item_ch_ram.dout_ref), UVM_MEDIUM)
+                
+                `display_separator
             end
             else
                 correct_count++;

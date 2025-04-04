@@ -6,6 +6,8 @@
 100 READ_DATA
 101 INVALID
 
-# SS_n
-0 Slave_Selected
-1 Slave_Not_Selected
+# Control bits
+0 WR_ADDR
+1 WR_DATA
+2 RD_ADDR
+3 RD_DATA

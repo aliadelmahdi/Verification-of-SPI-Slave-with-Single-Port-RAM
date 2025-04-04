@@ -26,4 +26,7 @@
     `define TIME_UNIT 1ps
     `define TIME_PRECISION 1ps
 
+    `define display_separator $display("====================================================================================");
+
+
 `endif

@@ -24,11 +24,11 @@ interface SPI_if(input bit clk);
 
   	logic rst_n,SS_n,MOSI;
 	logic MISO;
-	logic [7:0] dout; // tx_data
+	logic [MEM_WIDTH-1:0] dout; // tx_data
 	logic tx_valid,rx_valid;
-	logic [9:0] rx_data; // din
+	logic [MEM_WIDTH+1:0] rx_data; // din
 
-	logic [7:0] dout_ref; // tx_data_ref
+	logic [MEM_WIDTH-1:0] dout_ref; // tx_data_ref
 	logic tx_valid_ref;
 
 

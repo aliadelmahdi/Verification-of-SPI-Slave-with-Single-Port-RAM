@@ -14,10 +14,10 @@ import shared_pkg::*; // For enums and parameters
 module SPI_slave_sva(cs,MOSI,SS_n,clk,rst_n,tx_data,tx_valid,MISO,rx_data,rx_valid);
     
     input MOSI,clk,rst_n,SS_n,tx_valid;
-    input [7:0] tx_data;
+    input [MEM_WIDTH-1:0] tx_data;
 
 	input logic MISO,rx_valid;
-	input logic [9:0] rx_data;
+	input logic [MEM_WIDTH+1:0] rx_data;
     input logic [2:0] cs;
     property check_reset_data;
             (!rst_n)|=> ( (rx_data==0)
