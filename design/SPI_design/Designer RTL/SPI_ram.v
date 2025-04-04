@@ -16,6 +16,8 @@ always@(posedge clk)begin
   if(rst_n==0)begin
   dout<=0;
   tx_valid<=0;
+  addr_rd <= 0;// Fixed this line for the designer #verfication team
+  addr_wr<=0;// Fixed this line for the designer #verfication team
   end
   else begin 
     if(rx_valid)begin

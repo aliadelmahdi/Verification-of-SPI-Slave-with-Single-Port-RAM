@@ -1,13 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Fri Apr 04 18:02:10 2025
+[*] Fri Apr 04 20:36:42 2025
 [*]
-[dumpfile] "E:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\waves\waves.vcd"
-[savefile] "E:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\GTK_settings.gtkw"
+[dumpfile] "e:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\waves.vcd"
+[dumpfile_mtime] "Fri Apr 04 20:35:22 2025"
+[dumpfile_size] 160172
+[savefile] "e:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\GTK_settings.gtkw"
 [timestart] 0
 [size] 1920 1009
-[pos] -35 -35
-*-6.000000 80 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-5.000000 124 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] tb_top.
 [treeopen] tb_top.RAM.
 [treeopen] tb_top.slave.
@@ -33,9 +35,6 @@ tb_top.RAM.RAM_sva_inst.tx_valid
 @200
 -
 -RAM GLD
-@2024
-^2 E:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\enums.gtkw
-tb_top.RAM_GLD.control_bits
 @22
 tb_top.RAM_GLD.d_in[7:0]
 tb_top.RAM_GLD.dout[7:0]
@@ -46,9 +45,11 @@ tb_top.RAM_GLD.rx_valid
 tb_top.RAM_GLD.tx_valid
 @22
 tb_top.RAM_GLD.wr_addr[7:0]
-@201
--
+@2025
+^1 E:\Shared Folders\Uni\courses\Digital circuit\digital github codes\Done\spi\Verification-of-SPI-Slave-with-Single-Port-RAM\waves\enums.gtkw
+tb_top.RAM_GLD.control_bits[1:0]
 @200
+-
 -
 -SLAVE
 @28

@@ -15,7 +15,7 @@ module tb_top;
 
     SPI_env env_instance; // Instantiate the SPI enviroment
     SPI_test test; // Instantiate the SPI test
-
+     
     // Instantiate the interface
     SPI_if spi_if (clk);
     
@@ -82,6 +82,6 @@ module tb_top;
         // uvm_top.finish_on_completion = `DISABLE_FINISH; // Prevent UVM from calling $finish
         uvm_config_db#(virtual SPI_if)::set(null, "*", "spi_if", spi_if); // Set SPI interface globally
         run_test("SPI_test"); // Start the UVM test
-        // $stop; // Stop simulation after test execution
+        $stop; // Stop simulation after test execution
     end
 endmodule : tb_top
