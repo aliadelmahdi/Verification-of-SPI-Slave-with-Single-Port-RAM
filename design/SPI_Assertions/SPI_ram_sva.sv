@@ -14,84 +14,73 @@ module SPI_ram_sva(
     input[MEM_WIDTH+1:0]din,
     input logic [MEM_WIDTH-1:0]dout,
     input logic tx_valid,
-    input logic [ADDR_SIZE-1:0]addr_rd,addr_wr,
-    input reg [MEM_WIDTH-1:0]mem[MEM_DEPTH-1:0]
+    input logic [ADDR_SIZE-1:0] addr_rd,addr_wr,
+    input logic [MEM_WIDTH-1:0] current_addr_wr_data,
+    input logic [MEM_WIDTH-1:0] current_addr_rd_data
     );
+    logic [1:0] control_bits;
+    assign control_bits = din[9:8];
     
-
- property check_reset;
-            (!rst_n)|=> ( (dout==0)
-                      && !tx_valid
-                     ); 
-                     
+    property check_reset;
+            (!rst_n)|=> ( dout==0
+                        && !tx_valid);
     endproperty
 
     assert_check_reset: assert property (@(posedge clk) check_reset)
-
         else begin
         $error("Failed to assert reset");
-        $display("dout = %b, tx_valid = %b", 
-                      dout, tx_valid);
+        $display("dout = %h, tx_valid = %b", dout, tx_valid);
         end
 
-property addr_wr_stored;
-    @(posedge clk) disable iff(!rst_n)
-            (rx_valid && din[9:8]==2'b00) |=> (addr_wr == $past(din[7:0]));
-                     
-//     endproperty
+    property check_wr_addr_ram;
+        @(posedge clk) disable iff(!rst_n)
+                (rx_valid && control_bits== WR_ADDR) |=> (addr_wr == $past(din[7:0]));
+    endproperty
 
-        assert_addr_wr_stored: assert property (addr_wr_stored)
-
+    assert_wr_addr_ram: assert property (check_wr_addr_ram)
         else begin
-            $error("Failed to assert addr_wr_stored");
-                $display("din[7:0] = %b, addr_wr = %b", 
-                      din[7:0], addr_wr);
-         end
+                $error("The RAM failed to store din[7:0] in the internal write address bus when the control bits are WR_ADDR");
+                $display("din[7:0] = %h, addr_wr = %h", din[7:0], addr_wr); 
+            end
 
-property data_wr_stored;
-    @(posedge clk) disable iff(!rst_n)
-            (rx_valid && din[9:8]==2'b01) |=> (mem[addr_wr] == $past(din[7:0]));
-                     
-//     endproperty
+    property check_wr_data_ram;
+        @(posedge clk) disable iff(!rst_n)
+                (rx_valid && control_bits==WR_DATA) |=> (current_addr_wr_data === $past(din[7:0]));
+    endproperty
 
-        assert_data_wr_stored: assert property ( data_wr_stored)
-
-//         else $error("Failed to assert data_wr_stored");
-
-
-property addr_rd_stored;
-    @(posedge clk) disable iff(!rst_n)
-            (rx_valid && din[9:8]==2'b10) |=> (addr_rd == $past(din[7:0]));
-                     
-//     endproperty
-
-        assert_addr_rd_stored: assert property ( addr_rd_stored)
-
-//         else $error("Failed to assert addr_rd_stored");
-
-property data_rd_stored;
-    @(posedge clk) disable iff(!rst_n)
-            ( din[9:8]==2'b11) |=> ((mem[addr_rd] === dout[7:0]) && (tx_valid==1));
-                     
-//     endproperty
-
-        assert_data_rd_stored: assert property ( data_rd_stored)
-
+    assert_wr_data_ram: assert property (check_wr_data_ram)
         else begin
-            $error("Failed to assert data_rd_stored");
-                        $display("dout[7:0]) = %h, mem[addr_rd] = %h tx_valid = %h", 
-                      dout[7:0], mem[addr_rd],tx_valid);
-         end
+            $error("The RAM failed to store din[7:0] with write address previously held");
+            $display("current_addr_wr_data = %h, din[7:0] = %h", current_addr_wr_data, $past(din[7:0])); 
+        end
 
-property Ram_Idle;
-    @(posedge clk) disable iff(!rst_n)
-            ( rx_valid && !(din[9:8]==2'b11)) |=> ((tx_valid==0));
-                     
-//     endproperty
+    property check_rd_addr_ram;
+        @(posedge clk) disable iff(!rst_n)
+                (rx_valid && control_bits==RD_ADDR) |=> (addr_rd == $past(din[7:0]));
+    endproperty
 
-        assert_Ram_Idle: assert property ( Ram_Idle)
+    assert_rd_addr_ram: assert property (check_rd_addr_ram)
+            else $error("The RAM failed to store din[7:0] in the internal read address bus");
 
-//         else $error("Failed to assert Ram_Idle");
+    property check_rd_data_ram;
+        @(posedge clk) disable iff(!rst_n)
+                ( rx_valid && control_bits==RD_DATA) |=> (dout[7:0] === current_addr_rd_data
+                                        && tx_valid);
+    endproperty
+
+    assert_rd_data_ram: assert property (check_rd_data_ram)
+        else begin
+            $error("Failed to read from the memory with rd address previously held");
+            $display("dout[7:0]) = %h, mem[addr_rd] = %h tx_valid = %b", control_bits, current_addr_rd_data,tx_valid);
+             end
+
+    property check_tx_valid;
+        @(posedge clk) disable iff(!rst_n)
+                ( rx_valid && !(control_bits==RD_DATA)) |=> (!tx_valid);
+    endproperty
+
+    assert_tx_valid: assert property (check_tx_valid)
+        else $error("Failed to ensure that the RAM deasserts tx valid");
 
 
 endmodule

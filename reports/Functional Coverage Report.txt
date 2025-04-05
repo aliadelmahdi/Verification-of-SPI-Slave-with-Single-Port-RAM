@@ -7,33 +7,74 @@ Coverage Report by instance with details
 
 Covergroup Coverage:
     Covergroups                      1        na        na   100.00%
-        Coverpoints/Crosses          1        na        na        na
-            Covergroup Bins          4         4         0   100.00%
+        Coverpoints/Crosses          4        na        na        na
+            Covergroup Bins         20        20         0   100.00%
 ----------------------------------------------------------------------------------------------------------
 Covergroup                                             Metric       Goal       Bins    Status               
                                                                                                          
 ----------------------------------------------------------------------------------------------------------
  TYPE /SPI_coverage_pkg/SPI_coverage/spi_cov_grp      100.00%        100          -    Covered              
-    covered/total bins:                                     4          4          -                      
-    missing/total bins:                                     0          4          -                      
+    covered/total bins:                                    20         20          -                      
+    missing/total bins:                                     0         20          -                      
     % Hit:                                            100.00%        100          -                      
     Coverpoint rst_n_cp                               100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint tx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint dout_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross tx_valid_dout_cr                            100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
         % Hit:                                        100.00%        100          -                      
  Covergroup instance \/SPI_coverage_pkg::SPI_coverage::spi_cov_grp  
                                                       100.00%        100          -    Covered              
-    covered/total bins:                                     4          4          -                      
-    missing/total bins:                                     0          4          -                      
+    covered/total bins:                                    20         20          -                      
+    missing/total bins:                                     0         20          -                      
     % Hit:                                            100.00%        100          -                      
     Coverpoint rst_n_cp                               100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-        bin active                                         43          1          -    Covered              
-        bin inactive                                       58          1          -    Covered              
+        bin active                                         30          1          -    Covered              
+        bin inactive                                      972          1          -    Covered              
         bin inactive_to_active                             27          1          -    Covered              
-        bin active_to_inactive                             27          1          -    Covered              
+        bin active_to_inactive                             26          1          -    Covered              
+    Coverpoint tx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin valid                                         233          1          -    Covered              
+        bin not_vaild                                     769          1          -    Covered              
+        bin valid_to_not_vaild                            173          1          -    Covered              
+        bin not_valid_to_vaild                            173          1          -    Covered              
+    Coverpoint dout_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          149          1          -    Covered              
+        bin alt_10                                         40          1          -    Covered              
+        bin alt_01                                         24          1          -    Covered              
+        bin others                                        247          1          -    Covered              
+    Cross tx_valid_dout_cr                            100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin valid_dout_zero                            15          1          -    Covered              
+            bin valid_dout_alt_10                          12          1          -    Covered              
+            bin valid_dout_alt_01                           4          1          -    Covered              
+            bin valid_dout_others                          74          1          -    Covered              
+            bin valid_dout_zero_trans                      11          1          -    Covered              
+            bin valid_dout_alt_10_trans                    10          1          -    Covered              
+            bin valid_dout_alt_01_trans                     4          1          -    Covered              
+            bin valid_dout_others_trans                    55          1          -    Covered              
 
 COVERGROUP COVERAGE:
 ----------------------------------------------------------------------------------------------------------
@@ -41,26 +82,67 @@ Covergroup                                             Metric       Goal       B
                                                                                                          
 ----------------------------------------------------------------------------------------------------------
  TYPE /SPI_coverage_pkg/SPI_coverage/spi_cov_grp      100.00%        100          -    Covered              
-    covered/total bins:                                     4          4          -                      
-    missing/total bins:                                     0          4          -                      
+    covered/total bins:                                    20         20          -                      
+    missing/total bins:                                     0         20          -                      
     % Hit:                                            100.00%        100          -                      
     Coverpoint rst_n_cp                               100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint tx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Coverpoint dout_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+    Cross tx_valid_dout_cr                            100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
         % Hit:                                        100.00%        100          -                      
  Covergroup instance \/SPI_coverage_pkg::SPI_coverage::spi_cov_grp  
                                                       100.00%        100          -    Covered              
-    covered/total bins:                                     4          4          -                      
-    missing/total bins:                                     0          4          -                      
+    covered/total bins:                                    20         20          -                      
+    missing/total bins:                                     0         20          -                      
     % Hit:                                            100.00%        100          -                      
     Coverpoint rst_n_cp                               100.00%        100          -    Covered              
         covered/total bins:                                 4          4          -                      
         missing/total bins:                                 0          4          -                      
         % Hit:                                        100.00%        100          -                      
-        bin active                                         43          1          -    Covered              
-        bin inactive                                       58          1          -    Covered              
+        bin active                                         30          1          -    Covered              
+        bin inactive                                      972          1          -    Covered              
         bin inactive_to_active                             27          1          -    Covered              
-        bin active_to_inactive                             27          1          -    Covered              
+        bin active_to_inactive                             26          1          -    Covered              
+    Coverpoint tx_valid_cp                            100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin valid                                         233          1          -    Covered              
+        bin not_vaild                                     769          1          -    Covered              
+        bin valid_to_not_vaild                            173          1          -    Covered              
+        bin not_valid_to_vaild                            173          1          -    Covered              
+    Coverpoint dout_cp                                100.00%        100          -    Covered              
+        covered/total bins:                                 4          4          -                      
+        missing/total bins:                                 0          4          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin zero                                          149          1          -    Covered              
+        bin alt_10                                         40          1          -    Covered              
+        bin alt_01                                         24          1          -    Covered              
+        bin others                                        247          1          -    Covered              
+    Cross tx_valid_dout_cr                            100.00%        100          -    Covered              
+        covered/total bins:                                 8          8          -                      
+        missing/total bins:                                 0          8          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin valid_dout_zero                            15          1          -    Covered              
+            bin valid_dout_alt_10                          12          1          -    Covered              
+            bin valid_dout_alt_01                           4          1          -    Covered              
+            bin valid_dout_others                          74          1          -    Covered              
+            bin valid_dout_zero_trans                      11          1          -    Covered              
+            bin valid_dout_alt_10_trans                    10          1          -    Covered              
+            bin valid_dout_alt_01_trans                     4          1          -    Covered              
+            bin valid_dout_others_trans                    55          1          -    Covered              
 
 TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
 

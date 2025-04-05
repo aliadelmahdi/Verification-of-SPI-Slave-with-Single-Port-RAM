@@ -30,7 +30,6 @@ interface SPI_if(input bit clk);
 
 	logic [MEM_WIDTH-1:0] dout_ref; // tx_data_ref
 	logic tx_valid_ref;
-
 	 // DUT modport
     modport RAM_GLD (
         input clk, rst_n, rx_valid, rx_data,

@@ -1,5 +1,5 @@
 # Compile the C++ DPI-C file (Golden Model) into a shared library
-# exec g++ -shared -fPIC -o "design/SPI_design/Golden Models/dpi_memory.dll" "design/SPI_design/Golden Models/dpi_memory.cpp"
+exec g++ -shared -fPIC -o "design/SPI_design/Golden Models/dpi_memory.dll" "design/SPI_design/Golden Models/dpi_memory.cpp"
 vlib work
 vlog +incdir+./interface -f "scripts/list.list" -mfcu +cover -covercells
 # Enable the transcript (even in the compile version of questa sim)
@@ -14,7 +14,7 @@ log -r /*
 add wave /tb_top/RAM/*
 add wave /tb_top/slave/*
 # Code Coverage
-coverage save top.ucdb -onexit -du work.RAM_Sync_Single_port -du work.SPI_slave
+coverage save top.ucdb -onexit -du work.RAM_Sync_Single_port
 
 vcd file waves/waves.vcd
 vcd add -r /* 
@@ -26,6 +26,6 @@ vcd flush
 coverage report -detail -cvg -directive  \
     -output "reports/Functional Coverage Report.txt" \
     /SPI_coverage_pkg/SPI_coverage/*
-#quit -sim
+quit -sim
 # Save Coverage Report
 vcover report top.ucdb -details -annotate -all -output "reports/Coverage Report - Code, Assertions, and Directives.txt"

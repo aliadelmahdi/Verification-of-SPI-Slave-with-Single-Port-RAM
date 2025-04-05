@@ -51,11 +51,10 @@ module ram_golden_model (SPI_if spi_if);
                     rd_addr <= (rx_valid)? d_in : rd_addr;
                 end
                 RD_DATA:begin
-                    dout <= (rx_valid)? memory[rd_addr] : dout;
-                    tx_valid<=1;
-                end
-                default: begin
-                    $error("Unknown control bits");
+                    if(rx_valid) begin
+                        dout <= memory[rd_addr];
+                        tx_valid<=1;
+                    end
                 end
             endcase
         end
@@ -117,13 +116,8 @@ module ram_c_plus_plus_golden_model (SPI_if spi_if);
                     rd_addr <= (rx_valid) ? d_in : rd_addr;
                 end
                 RD_DATA: begin
-                    if (rx_valid) begin
-                        dout <= read_memory(rd_addr);
-                        tx_valid <= 1;
-                    end
-                end
-                default: begin
-                    $error("Unknown control bits");
+                    dout <= read_memory(rd_addr);
+                    tx_valid <= 1;
                 end
             endcase
         end

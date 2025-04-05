@@ -30,6 +30,7 @@ package SPI_coverage_pkg;
         uvm_analysis_export #(SPI_ram_seq_item) ram_cov_export;
         uvm_tlm_analysis_fifo #(SPI_ram_seq_item) ram_cov_spi;
         SPI_ram_seq_item ram_seq_item_cov;
+        // module RAM_Sync_Single_port(din,rx_valid,clk,rst_n,            tx_valid,dout);
 
         // Covergroup definitions
         covergroup spi_cov_grp;
@@ -39,10 +40,37 @@ package SPI_coverage_pkg;
                 bins inactive_to_active = (`HIGH=>`LOW);
                 bins active_to_inactive = (`LOW=>`HIGH);
             }
-           
+            tx_valid_cp: coverpoint ram_seq_item_cov.tx_valid {
+                bins valid = {VALID};
+                bins not_vaild = {NOT_VALID};
+                bins valid_to_not_vaild = (VALID => NOT_VALID);
+                bins not_valid_to_vaild = (NOT_VALID => VALID);
+            }
+
+            dout_cp: coverpoint ram_seq_item_cov.dout {
+                bins zero    = {ZERO};
+                bins alt_10  = {ALT_10};
+                bins alt_01  = {ALT_01};
+                bins maximum = {MAXIMUM};
+                bins others = {[1:MAXIMUM-1]} with (!(item == ALT_01 || item == ALT_10));
+            }
+            
+            tx_valid_dout_cr: cross tx_valid_cp,dout_cp{
+                bins valid_dout_zero = binsof(dout_cp.zero) && binsof(tx_valid_cp.valid);
+                bins valid_dout_alt_10 = binsof(dout_cp.alt_10) && binsof(tx_valid_cp.valid);
+                bins valid_dout_alt_01 = binsof(dout_cp.alt_01) && binsof(tx_valid_cp.valid);
+                bins valid_dout_maximum = binsof(dout_cp.maximum) && binsof(tx_valid_cp.valid);
+                bins valid_dout_others = binsof(dout_cp.others) && binsof(tx_valid_cp.valid);
+
+                bins valid_dout_zero_trans = binsof(dout_cp.zero) && binsof(tx_valid_cp.not_valid_to_vaild);
+                bins valid_dout_alt_10_trans = binsof(dout_cp.alt_10) && binsof(tx_valid_cp.not_valid_to_vaild);
+                bins valid_dout_alt_01_trans = binsof(dout_cp.alt_01) && binsof(tx_valid_cp.not_valid_to_vaild);
+                bins valid_dout_maximum_trans = binsof(dout_cp.maximum) && binsof(tx_valid_cp.not_valid_to_vaild);
+                bins valid_dout_others_trans = binsof(dout_cp.others) && binsof(tx_valid_cp.not_valid_to_vaild);
+                option.cross_auto_bin_max = 0;
+            }
+
         endgroup
-
-
 
         // Constructor
         function new (string name = "SPI_coverage", uvm_component parent);

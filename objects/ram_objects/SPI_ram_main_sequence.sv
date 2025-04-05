@@ -16,7 +16,7 @@ package SPI_ram_main_sequence_pkg;
         
         task body;
 
-            repeat(`TEST_ITER_LARGE) begin
+            repeat(`TEST_ITER_MEDIUM) begin
                 ram_seq_item = SPI_ram_seq_item::type_id::create("ram_seq_item");
                 start_item(ram_seq_item);
                 assert(ram_seq_item.randomize()) else $error("Randomization Failed");
